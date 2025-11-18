@@ -3,13 +3,6 @@ package algorithms.sorting.bubble;
 import java.util.Arrays;
 
 public class BubbleSort {
-    public static void main(String[] args) {
-        int[] numbers = { 5, 3, 4, 1, 2, 0 };
-        System.out.println(Arrays.toString(numbers));
-        bubbleSort(numbers);
-        System.out.println(Arrays.toString(numbers));
-    }
-
     public static void bubbleSort(int[] numbers) {
         for(;;) {
             boolean done = true;
