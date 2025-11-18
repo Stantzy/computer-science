@@ -1,0 +1,34 @@
+# General
+*.log
+*.tmp
+*.swp
+*.dat
+*.bak
+
+# IDEA
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# C / C++
+*.o
+*.obj
+*.exe
+*.out
+*.so
+*.a
+
+# Build
+build/
+bin/
+dist/
+target/
