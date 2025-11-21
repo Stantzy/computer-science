@@ -3,7 +3,7 @@ package algorithms.sorting.bubble;
 import java.util.Arrays;
 
 public class BubbleSort {
-    public static void bubbleSort(int[] numbers) {
+    public static int[] bubbleSort(int[] numbers) {
         for(;;) {
             boolean done = true;
 
@@ -19,9 +19,11 @@ public class BubbleSort {
             if(done)
                 break;
         }
+
+        return numbers;
     }
 
-    public static void bubbleSortSimple(int[] numbers) {
+    public static int[] bubbleSortSimple(int[] numbers) {
         for(int i = 0; i < numbers.length - 1; i++) {
             for(int j = 0; j < numbers.length - 1; j++) {
                 if(numbers[j] > numbers[j + 1]) {
@@ -31,5 +33,6 @@ public class BubbleSort {
                 }
             }
         }
+        return numbers;
     }
 }

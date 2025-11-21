@@ -1,7 +1,7 @@
 package algorithms.sorting.selection;
 
 public class SelectionSort {
-    public static void selectionSort(int[] numbers) {
+    public static int[] selectionSort(int[] numbers) {
         for(int i = 0; i < numbers.length; i++) {
             int min = i;
 
@@ -16,5 +16,7 @@ public class SelectionSort {
                 numbers[i] = tmp;
             }
         }
+
+        return numbers;
     }
 }
