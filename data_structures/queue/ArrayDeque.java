@@ -106,11 +106,11 @@ public class ArrayDeque<T> {
         Object[] newBuffer = new Object[newCapacity];
 
         for(int i = 0; i < size; i++)
-            newBuffer[i] = buffer[(front + i) % capacity];
+            newBuffer[i] = buffer[(front + i - 1) % capacity];
 
+        buffer = newBuffer;
+        capacity = newCapacity;
         front = capacity - 1;
         rear = size;
-        capacity = newCapacity;
-        buffer = newBuffer;
     }
 }

@@ -12,7 +12,7 @@ public class ArrayDequeTest {
     }
 
     private static void testPushFrontAndPopFront() {
-        ArrayDeque<Integer> deque = new ArrayDeque<>();
+        ArrayDeque<Integer> deque = new ArrayDeque<>(1);
         Integer element;
 
         deque.pushBack(10);
