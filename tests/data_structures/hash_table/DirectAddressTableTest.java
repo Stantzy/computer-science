@@ -80,6 +80,25 @@ public class DirectAddressTableTest {
     }
 
     private static void testRemove() {
+        DirectAddressTable<Integer> table = new DirectAddressTable<>();
+
+        table.put(0, 10);
+        table.put(1, 20);
+        table.put(2, 30);
+
+        Integer removedValue;
+
+        removedValue = table.remove((Integer)10);
+        assert removedValue == 10 && table.get(10) == null :
+                "testRemove: expected removedValue=10, got " + removedValue;
+
+        removedValue = table.remove((Integer)(-1));
+        assert removedValue == null :
+                "testRemove: expected removedValue=null, got " + removedValue;
+
+        removedValue = table.remove((Integer)30);
+        assert removedValue == 30 && table.get(30) == null :
+                "testRemove: expected removedValue=30, got " + removedValue;
 
     }
 

@@ -47,6 +47,21 @@ public class DirectAddressTable<V> {
         return value;
     }
 
+    public V remove(V value) {
+        if(value == null)
+            return null;
+
+        for (int i = 0; i < table.length; i++) {
+            if(value.equals(table[i])) {
+                table[i] = null;
+                size--;
+                return value;
+            }
+        }
+
+        return null;
+    }
+
     public int size() {
         return size;
     }
