@@ -27,12 +27,13 @@ public class HashTable<K, V> {
         this(DEFAULT_CAPACITY, DEFAULT_LOAD_FACTOR);
     }
 
+    @SuppressWarnings("unchecked")
     public HashTable(int startCapacity, float loadFactor) {
         this.buckets = new LinkedList[startCapacity];
         this.size = 0;
         this.capacity = startCapacity;
         this.loadFactor = loadFactor;
-        this.threshold = (int)(capacity * loadFactor);
+        this.threshold = (int)(capacity * loadFactor) + 1;
     }
 
     public void put(K key, V value) {
@@ -43,7 +44,7 @@ public class HashTable<K, V> {
         buckets[index] = insert(buckets[index], bucket);
         size++;
 
-        if(threshold >= loadFactor)
+        if(size >= threshold)
             rehash();
     }
 
@@ -77,6 +78,9 @@ public class HashTable<K, V> {
                 break;
             }
         }
+
+        if(list.isEmpty())
+            buckets[index] = null;
 
         return result;
     }
@@ -129,6 +133,7 @@ public class HashTable<K, V> {
         return (hash < 0 ? -hash : hash) % buckets.length;
     }
 
+    @SuppressWarnings("unchecked")
     private void rehash() {
         int newCapacity = capacity * 2;
         LinkedList<Bucket<K, V>>[] newBuckets = new LinkedList[newCapacity];
