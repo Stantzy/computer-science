@@ -10,6 +10,11 @@ for f in $(find tests -name "*.class"); do
 	class=$f
 	class=${class%.class}
 	class=${class//\//.}
+
+	if [[ "$class" == *"$"* ]]; then
+	  continue
+	fi
+
 	if [[ "$class" != "tests.algorithms.sorting.SortTest" ]]; then
 		java -ea -cp . "$class"
 	fi
