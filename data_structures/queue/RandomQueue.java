@@ -1,6 +1,10 @@
 package data_structures.queue;
 
-public class RandomQueue<T> {
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Random;
+
+public class RandomQueue<T> implements Iterable<T>{
     private static final int DEFAULT_CAPACITY = 16;
 
     private final T[] queue;
@@ -88,5 +92,43 @@ public class RandomQueue<T> {
         T tmp = queue[i];
         queue[i] = queue[j];
         queue[j] = tmp;
+    }
+
+    public Iterator<T> iterator() {
+        return new Iterator<>() {
+            private int count = 0;
+            private final int[] indexes;
+
+            {
+                indexes = new int[size];
+
+                int pos = headIndex;
+                for(int i = 0; i < size; i++) {
+                    indexes[i] = pos;
+                    pos = (pos + 1) % queue.length;
+                }
+
+                /* Fisher-Yates shuffle */
+                Random random = new Random();
+                for(int i = size - 1; i > 0; i--) {
+                    int j = random.nextInt(i + 1);
+                    int tmp = indexes[i];
+                    indexes[i] = indexes[j];
+                    indexes[j] = tmp;
+                }
+            }
+
+            @Override
+            public boolean hasNext() {
+                return count < indexes.length;
+            }
+
+            @Override
+            public T next() {
+                if(!hasNext())
+                    throw new NoSuchElementException();
+                return queue[indexes[count++]];
+            }
+        };
     }
 }
