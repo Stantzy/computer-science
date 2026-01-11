@@ -1,4 +1,4 @@
-package data_structures.cache.MRUCache;
+package data_structures.cache.MRU;
 
 import java.util.HashMap;
 

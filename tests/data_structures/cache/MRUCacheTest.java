@@ -1,7 +1,7 @@
 package tests.data_structures.cache;
 
 
-import data_structures.cache.MRUCache.MRUCache;
+import data_structures.cache.MRU.MRUCache;
 
 public class MRUCacheTest {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 package tests.data_structures.cache;
 
-import data_structures.cache.LIFOCache.LIFOCache;
+import data_structures.cache.LIFO.LIFOCache;
 
 public class LIFOCacheTest {
     public static void main(String[] args) {

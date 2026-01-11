@@ -1,4 +1,4 @@
-package data_structures.cache.LIFOCache;
+package data_structures.cache.LIFO;
 
 import java.util.HashMap;
 
